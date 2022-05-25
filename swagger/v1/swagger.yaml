@@ -86,6 +86,88 @@ paths:
       responses:
         '200':
           description: ''
+  "/reviews":
+    delete:
+      summary: Delete review by id.
+      tags:
+      - Reviews
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          required:
+          - id
+      responses:
+        '200':
+          description: Review has been deleted.
+    post:
+      summary: Create review.
+      tags:
+      - Reviews
+      parameters: []
+      responses:
+        '201':
+          description: Review created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                profile:
+                  type: integer
+                course_id:
+                  type: integer
+                text:
+                  type: string
+                mark_of_theory:
+                  type: string
+                mark_of_practice:
+                  type: string
+    patch:
+      summary: Update data of review.
+      tags:
+      - Reviews
+      parameters: []
+      responses:
+        '201':
+          description: Review updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                profile:
+                  type: integer
+                course_id:
+                  type: integer
+                text:
+                  type: string
+                mark_of_theory:
+                  type: string
+                mark_of_practice:
+                  type: string
+    get:
+      summary: Get review or list of reviews.
+      tags:
+      - Reviews
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          properties:
+            id:
+              type: integer
+      responses:
+        '200':
+          description: ''
   "/students":
     delete:
       summary: Delete student by id.
