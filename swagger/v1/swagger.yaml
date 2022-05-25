@@ -1,0 +1,88 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/courses":
+    delete:
+      summary: Delete course by id.
+      tags:
+      - Courses
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          required:
+          - id
+      responses:
+        '200':
+          description: Course has been deleted.
+    post:
+      summary: Create achievement.
+      tags:
+      - Courses
+      parameters: []
+      responses:
+        '201':
+          description: Achievement created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                title:
+                  type: string
+                description:
+                  type: string
+                estimated_time:
+                  type: integer
+                difficulty:
+                  type: integer
+                state:
+                  type: string
+    patch:
+      summary: Update data of course.
+      tags:
+      - Courses
+      parameters: []
+      responses:
+        '201':
+          description: Course updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                title:
+                  type: string
+                description:
+                  type: string
+                estimated_time:
+                  type: integer
+                difficulty:
+                  type: integer
+                state:
+                  type: string
+    get:
+      summary: Get course or list of courses.
+      tags:
+      - Courses
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          properties:
+            id:
+              type: integer
+      responses:
+        '200':
+          description: ''
