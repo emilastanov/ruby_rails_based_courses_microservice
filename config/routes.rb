@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/'
 
   make_crud_routes :courses
+  make_crud_routes :students
 end

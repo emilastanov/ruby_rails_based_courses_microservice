@@ -20,13 +20,13 @@ paths:
         '200':
           description: Course has been deleted.
     post:
-      summary: Create achievement.
+      summary: Create course.
       tags:
       - Courses
       parameters: []
       responses:
         '201':
-          description: Achievement created
+          description: Course created
       requestBody:
         content:
           application/json:
@@ -75,6 +75,84 @@ paths:
       summary: Get course or list of courses.
       tags:
       - Courses
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          properties:
+            id:
+              type: integer
+      responses:
+        '200':
+          description: ''
+  "/students":
+    delete:
+      summary: Delete student by id.
+      tags:
+      - Students
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          required:
+          - id
+      responses:
+        '200':
+          description: Student has been deleted.
+    post:
+      summary: Create student.
+      tags:
+      - Students
+      parameters: []
+      responses:
+        '201':
+          description: Student created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                profile:
+                  type: integer
+                course_id:
+                  type: integer
+                pass_percentage:
+                  type: numeric
+                state:
+                  type: string
+    patch:
+      summary: Update data of student.
+      tags:
+      - Students
+      parameters: []
+      responses:
+        '201':
+          description: Student updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                profile:
+                  type: integer
+                course_id:
+                  type: integer
+                pass_percentage:
+                  type: numeric
+                state:
+                  type: string
+    get:
+      summary: Get student or list of students.
+      tags:
+      - Students
       parameters:
       - name: id
         in: query

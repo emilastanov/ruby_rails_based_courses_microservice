@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_22_133149) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_25_142828) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_22_133149) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["state"], name: "index_courses_on_state"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.integer "profile", null: false
+    t.bigint "course_id", null: false
+    t.decimal "pass_percentage", default: "0.0"
+    t.string "state", default: "in_process"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_students_on_course_id"
   end
 
 end

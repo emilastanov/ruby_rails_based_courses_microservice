@@ -1,23 +1,22 @@
 # module Courses::Post::Document
 #
 # end
-def courses_post_document
-  path "/courses" do
-    post "Create course." do
-      tags "Courses"
+def students_post_document
+  path "/students" do
+    post "Create student." do
+      tags "Students"
       consumes "application/json"
       parameter name: :course, in: :body, schema: {
         type: :object,
         properties: {
           id: {type: :integer},
-          title: { type: :string },
-          description: { type: :string },
-          estimated_time: {type: :integer},
-          difficulty: {type: :integer},
+          profile: {type: :integer},
+          course_id: {type: :integer},
+          pass_percentage: {type: :numeric},
           state: {type: :string}
         },
       }
-      response "201", "Course created" do
+      response "201", "Student created" do
         let(:company) { {
           id: 1,
           title: "Achievement",
