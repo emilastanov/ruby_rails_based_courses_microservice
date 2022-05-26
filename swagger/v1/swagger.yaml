@@ -168,6 +168,76 @@ paths:
       responses:
         '200':
           description: ''
+  "/skills":
+    delete:
+      summary: Delete skill by id.
+      tags:
+      - Skills
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          required:
+          - id
+      responses:
+        '200':
+          description: Skill has been deleted.
+    post:
+      summary: Create skill.
+      tags:
+      - Skills
+      parameters: []
+      responses:
+        '201':
+          description: Skill created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                skill_id:
+                  type: integer
+                course_id:
+                  type: integer
+    patch:
+      summary: Update data of review.
+      tags:
+      - Skills
+      parameters: []
+      responses:
+        '201':
+          description: Skill updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                skill_id:
+                  type: integer
+                course_id:
+                  type: integer
+    get:
+      summary: Get skill or list of skills.
+      tags:
+      - Skills
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          properties:
+            id:
+              type: integer
+      responses:
+        '200':
+          description: ''
   "/students":
     delete:
       summary: Delete student by id.
