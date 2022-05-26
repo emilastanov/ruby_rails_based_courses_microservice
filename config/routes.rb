@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   make_crud_routes :students
   make_crud_routes :reviews
   make_crud_routes :skills
+  make_crud_routes :tasks
 end

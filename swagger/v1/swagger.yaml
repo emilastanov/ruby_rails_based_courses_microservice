@@ -316,3 +316,77 @@ paths:
       responses:
         '200':
           description: ''
+  "/tasks":
+    delete:
+      summary: Delete skill by id.
+      tags:
+      - Tasks
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          required:
+          - id
+      responses:
+        '200':
+          description: Task has been deleted.
+    post:
+      summary: Create task.
+      tags:
+      - Tasks
+      parameters: []
+      responses:
+        '201':
+          description: Task created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                data:
+                  type: json
+                type:
+                  type: string
+                course_id:
+                  type: integer
+    patch:
+      summary: Update data of task.
+      tags:
+      - Tasks
+      parameters: []
+      responses:
+        '201':
+          description: Task updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                type:
+                  type: integer
+                course_id:
+                  type: integer
+                data:
+                  type: json
+    get:
+      summary: Get task or list of tasks.
+      tags:
+      - Tasks
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          properties:
+            id:
+              type: integer
+      responses:
+        '200':
+          description: ''
